@@ -1,13 +1,191 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --field-size: 80px;
+  --uneven-field-color: #fff;
+  --dark-green-color: rgb(4, 65, 4);
+  --even-field-color: rgb(67, 27, 9);
+  --check-field-color: rgb(141, 25, 25);
+  --row-label-background-color: rgb(78, 78, 78);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+}
+
+.main-container {
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background: #333;
+}
+
+.field-uneven {
+  width: var(--field-size);
+  height: var(--field-size);
+  background: var(--uneven-field-color);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.field-even {
+  width: var(--field-size);
+  height: var(--field-size);
+  background: var(--even-field-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.field-check {
+  width: var(--field-size);
+  height: var(--field-size);
+  background: var(--check-field-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.pawn, .knight, .bishop, .rook, .queen, .king{
+  width: 50px;
+  -khtml-user-select: none;
+  -o-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.bishop {
+  width: 40px !important;
+}
+
+.selected {
+  background: chartreuse !important;
+}
+
+.row {
+  display: flex;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+
+label {
+  font-size: .85rem;
+}
+
+header {
+  text-align: center;
+  background: var(--dark-green-color);
+  font-family: 'Courier New', Courier, monospace;
+  color: #fff;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.restart-btn {
+  margin-right: 25px;
+  color: white;
+  background: var(--even-field-color);
+  height: 35px;
+  width: 80px;
+  border-radius: 5px;
+  border: 0px solid var(--even-field-color);
+}
+
+.restart-btn:hover {
+  transform: scaleY(1.03);
+  cursor: pointer;
+}
+
+.checkmate-div {
+  color: #fff;
+  margin-bottom: 35px;
+  background: var(--even-field-color);
+  width: 200px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.figure-selection-div {
+  width: 300px;
+  background: rgba(9, 9, 9, 0.83);
+  height: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.figure-selection-div > .row > button{
+  margin: 10px;
+  height: 50px;
+}
+
+.figure-selection-div > .row > button:hover{
+  cursor: pointer;
+  background: var(--even-field-color);
+  border-radius: 5px;
+  border: 2px solid black;
+}
+
+.figures-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 45px;
+}
+
+.figures-display img {
+  height:45px !important;
+  margin: 0px;
+}
+
+.figures-display .rook {
+  margin-top: 5px !important;
+}
+
+.figures-display .bishop {
+height: 38px !important;
+margin-top: 5px !important;
+
+}
+
+.figure-image-container {
+  display: flex;
+  justify-content: center;
+  width: 50px;
+}
+
+.points-display-div {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.3rem;
+  height: 10px;
+  margin: 10px;
+}
+
+.field-row-label-div {
+  color: #fff;
+  background: var(--dark-green-color);
+  text-align: center;
 }
